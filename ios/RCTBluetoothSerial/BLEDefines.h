@@ -43,7 +43,7 @@
 
 // Tavern Service
 #define TAVERN_SERVICE_UUID                      "94f39d29-7d6d-437d-973b-fba39e49d4ee"
-#define TAVERN_CHAR_TX_UUID                      ""
-#define TAVERN_CHAR_RX_UUID                      ""
+#define TAVERN_CHAR_TX_UUID                      "94f39d29-7d6d-437d-973b-fba39e49d4ee"
+#define TAVERN_CHAR_RX_UUID                      "94f39d29-7d6d-437d-973b-fba39e49d4ee"
 
 #define RBL_BLE_FRAMEWORK_VER                    0x0200
