@@ -31,6 +31,7 @@ CBUUID *lairdServiceUUID;
 CBUUID *blueGigaServiceUUID;
 CBUUID *rongtaSerivceUUID;
 CBUUID *posnetSerivceUUID;
+CBUUID *tavernServiceUUID;
 CBUUID *serialServiceUUID;
 CBUUID *readCharacteristicUUID;
 CBUUID *writeCharacteristicUUID;
@@ -220,8 +221,9 @@ CBUUID *writeCharacteristicUUID;
     blueGigaServiceUUID = [CBUUID UUIDWithString:@BLUEGIGA_SERVICE_UUID];
     rongtaSerivceUUID = [CBUUID UUIDWithString:@RONGTA_SERVICE_UUID];
     posnetSerivceUUID = [CBUUID UUIDWithString:@POSNET_SERVICE_UUID];
+    tavernServiceUUID = [CBUUID UUIDWithString:@TAVERN_SERVICE_UUID];
 
-    NSArray *services = @[redBearLabsServiceUUID, adafruitServiceUUID, lairdServiceUUID, blueGigaServiceUUID, rongtaSerivceUUID, posnetSerivceUUID];
+    NSArray *services = @[redBearLabsServiceUUID, adafruitServiceUUID, lairdServiceUUID, blueGigaServiceUUID, rongtaSerivceUUID, posnetSerivceUUID, tavernServiceUUID];
     [self.CM scanForPeripheralsWithServices:services options: nil];
 #else
     [self.CM scanForPeripheralsWithServices:nil options:nil]; // Start scanning
@@ -582,6 +584,11 @@ static bool done = false;
                 serialServiceUUID = posnetSerivceUUID;
                 readCharacteristicUUID = [CBUUID UUIDWithString:@POSNET_CHAR_TX_UUID];
                 writeCharacteristicUUID = [CBUUID UUIDWithString:@POSNET_CHAR_RX_UUID];
+            } else if ([service.UUID isEqual:tavernServiceUUID]) {
+              NSLog(@"Tavern Bluetooth");
+              serialServiceUUID = tavernServiceUUID;
+              readCharacteristicUUID = [CBUUID UUIDWithString:@TAVERN_CHAR_TX_UUID];
+              writeCharacteristicUUID = [CBUUID UUIDWithString:@TAVERN_CHAR_RX_UUID];
             } else {
                 // ignore unknown services
             }
