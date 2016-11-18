@@ -9,7 +9,7 @@ const BluetoothSerial = NativeModules.BluetoothSerial
  * @param  {Function} handler Event handler
  */
 BluetoothSerial.on = (eventName, handler) => {
-  DeviceEventEmitter.addListener(eventName, handler)
+  return DeviceEventEmitter.addListener(eventName, handler)
 }
 
 /**
